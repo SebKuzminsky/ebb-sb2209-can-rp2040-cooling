@@ -57,7 +57,7 @@ This cable door cover has holes for ventilation, and has a mount for a
 
 I know that some folks use alternate Stealthburner parts promoted by
 BigTreeTech, if so you may have to find or design a different cable
-door cover to fit you toolhead.  If you do, please open a PR to this
+door cover to fit your toolhead.  If you do, please open a PR to this
 repo with the details.
 
 
