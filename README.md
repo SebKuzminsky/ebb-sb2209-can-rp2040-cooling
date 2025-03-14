@@ -25,6 +25,10 @@ would stop and then never restart.
 The NTC 3950 sensor on the EBB SB2209 CAN (RP2040) board would often
 read >75 °C.
 
+FIXME: What about the on-board temperature sensor on the RP2040?
+
+FIXME: add pics of the temperature plots here
+
 
 
 
@@ -113,6 +117,12 @@ connect to P5 pin 3 (+24V), and the fan GND pin will connect to P5 pin 1
 You may need to make a small cut on the inside of the CW2 `main_body.stl`
 part to make room for the fan connector.
 
+<https://www.reddit.com/r/VORONDesign/comments/1flee2k/adding_a_fan_to_sb2209/>
+
+wiring & klipper config for a similar project: <https://github.com/HyperToxic33/EBB-Fan-Control>
+
+<https://makerworld.com/en/models/654087-galileo-2-cable-cover-with-3010-blower-fan>
+
 
 
 
@@ -145,3 +155,14 @@ kick_start_time: 1.0
 max_speed: 1.0
 min_speed: 0.0
 ```
+
+
+
+
+# Other notes
+
+FIXME: add a heat sink to the RP2040 on the SB2209 maybe?  Measure RP2040
+temp to find out if this is needed.  Do i need special low-profile
+heatsinks to fit under the cable cover?
+
+might need another part changed?  <https://github.com/bigtreetech/EBB/issues/93>
