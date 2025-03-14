@@ -25,6 +25,10 @@ would stop and then never restart.
 The NTC 3950 sensor on the EBB SB2209 CAN (RP2040) board would often
 read >75 °C.
 
+FIXME: What about the on-board temperature sensor on the RP2040?
+
+FIXME: add pics of the temperature plots here
+
 
 
 
@@ -73,3 +77,93 @@ available on the EBB SB2209 CAN (RP2040), which can be configured for 5V,
 The fan mounts pretty cleanly to the cable door cover, just threading
 the screws into the plastic.
 
+Other fans that people have recommended (i have no personal experience with these):
+* Delta
+* GDSTime
+* NMB
+* Noctua
+* Orion
+* Sunon
+
+FIXME: which length m3 BHCS did i use?
+
+
+
+
+# Wiring
+
+Useful documents from BigTreeTech (thanks!) here:
+<https://github.com/bigtreetech/EBB/>
+
+Specifically look at the drawings in `EBB SB2209 CAN (RP2040)/Hardware`.
+
+We'll use the "IND or FAN" connector on the SB2209 (RP2040).  It's a
+"PH2.0 3-pin" connector.
+
+FIXME: i think a mating connector came with the SB2209.
+
+Add a jumper to P2 to set `V_4WFAN` to VIN (24V).
+
+Add a jumper to pins 1 and 2 of P6 to select `FAN` mode (not `IND`).
+
+Make a cable that connects the fan +24 to P5 pin 3 (+24V), and the fan GND
+pin to P5 pin 1 (a MOSFET controlled by GPIO6 that connects to ground).
+
+<https://www.reddit.com/r/VORONDesign/comments/1flee2k/adding_a_fan_to_sb2209/>
+
+wiring & klipper config for a similar project: <https://github.com/HyperToxic33/EBB-Fan-Control>
+
+<https://makerworld.com/en/models/654087-galileo-2-cable-cover-with-3010-blower-fan>
+
+
+
+
+# Klipper config
+
+Simple:
+
+```
+[controller_fan toolhead_fan]
+pin: EBBCan:gpio6
+kick_start_time: 0.5
+heater: extruder
+max_power: 1
+```
+
+Adapt this maybe?
+
+```
+[temperature_fan electronics_bay]
+pin: EBBCan:gpio6
+sensor_type: temperature_combined
+# EBB thermistor, RP2040 internal temperature
+sensor_list: temperature_sensor SoC, temperature_sensor MCU
+combination_method: max
+maximum_deviation: 999.9
+min_temp: 0
+max_temp: 85
+target_temp: 48
+control: pid
+pid_kp = 2
+pid_ki = 5
+pid_kd = 0.5
+pid_deriv_time = 2.0
+kick_start_time: 1.0
+max_speed: 1.0
+min_speed: 0.0
+```
+
+
+
+
+# Other notes
+
+FIXME: add a heat sink to the RP2040 on the SB2209 maybe?  Measure RP2040
+temp to find out if this is needed.  Do i need special low-profile
+heatsinks to fit under the cable cover?
+
+    [temperature_sensor EBBCan]
+    sensor_type: temperature_mcu
+    sensor_mcu: EBBCan
+
+might need another part changed?  <https://github.com/bigtreetech/EBB/issues/93>
