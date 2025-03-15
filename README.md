@@ -7,6 +7,8 @@ This repo contains a description of how I added active (forced air)
 cooling of the EBB SB2209 CAN (RP2040) in the Stealthburner toolhead of
 my Voron 2.4.
 
+![](/images/finished.jpg)
+
 
 # The problem
 
@@ -59,6 +61,12 @@ EBB SB2209/2240 fan cover" by Sven Kah, available here:
 This cable door cover has holes for ventilation, and has a mount for a
 30xx fan for forced air.
 
+You may have to make a small clearance cut (e.g. with a rotary tool like
+a Dremel) to make room to install the SB2209 with the new fan connector
+pluggeed in.
+
+![](/images/clearance-cut.jpg)
+
 I know that some folks use alternate Stealthburner parts promoted by
 BigTreeTech, if so you may have to find or design a different cable
 door cover to fit your toolhead.  If you do, please open a PR to this
@@ -94,6 +102,10 @@ Useful documents from BigTreeTech (thanks!) here:
 <https://github.com/bigtreetech/EBB/>
 
 Specifically look at the drawings in `EBB SB2209 CAN (RP2040)/Hardware`.
+
+![](/images/circuit.png)
+![](/images/SB2209-connector-and-jumpers.png)
+![](/images/connector.jpg)
 
 We'll use the "IND or FAN" connector on the SB2209 (RP2040).  It's a
 "PH2.0 3-pin" connector.
