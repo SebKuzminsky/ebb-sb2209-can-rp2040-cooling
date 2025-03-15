@@ -46,6 +46,8 @@ Make sure there's a heatsink on the SB2209 as shown
 on page 9 of [EBB SB2209 CAN V1.0（RP2040）Build
 Guide_20240626.pdf](https://github.com/bigtreetech/EBB/blob/master/EBB%20SB2209%20CAN%20(RP2040)/Build%20Guide/EBB%20SB2209%20CAN%20V1.0%EF%BC%88RP2040%EF%BC%89Build%20Guide_20240626.pdf).
 
+![](/images/heatsink.png)
+
 
 ## Better Stealthburner cable door cover
 
