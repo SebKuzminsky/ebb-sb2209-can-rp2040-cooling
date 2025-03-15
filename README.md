@@ -71,5 +71,12 @@ available on the EBB SB2209 CAN (RP2040), which can be configured for 5V,
 12V, or the board's supply voltage, 24V in my case.
 
 The fan mounts pretty cleanly to the cable door cover, just threading
-the screws into the plastic.
+the screws into the plastic.  I used four M3x16 BHCS.
 
+Other fans that people have recommended (i have no personal experience with these):
+* Delta
+* GDSTime
+* NMB
+* Noctua
+* Orion
+* Sunon
